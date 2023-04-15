@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, BrowserRouter } from "react-router-dom"
 
-function App() {
+import Register from "./pages/user/register"
+import Login from "./pages/user/login"
+import ReadAll from "./pages/item/readAll"
+import ReadSingle from "./pages/item/readSingle"
+import CreateItem from "./pages/item/create"
+import UpdateItem from "./pages/item/update"
+import DeleteItem from "./pages/item/delete"
+
+import Header from "./components/header"
+import Footer from "./components/footer"
+
+import "./App.css"
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/user/register" element={<Register />} />
+          <Route path="/user/login" element={<Login />} />
+          <Route path="/" element={<ReadAll />} />
+          <Route path="/item/:id" element={<ReadSingle />} />
+          <Route path="/item/create" element={<CreateItem />} />
+          <Route path="/item/update/:id" element={<UpdateItem />} />
+          <Route path="/item/delete/:id" element={<DeleteItem />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+
+export default App
