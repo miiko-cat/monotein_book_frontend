@@ -17,7 +17,7 @@ const Register = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
-            const response = await fetch("https://monotein-book-5x2p.onrender.com//user/register", {
+            const response = await fetch("https://monotein-book-5x2p.onrender.com/user/register", {
                 method: "POST",
                 headers: {
                     "Accept": "application/json",

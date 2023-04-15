@@ -22,7 +22,7 @@ const UpdateItem = () => {
 
     useEffect(() => {
         const getSingleItem = async () => {
-            const response = await fetch(`https://monotein-book-5x2p.onrender.com//item/${params.id}`)
+            const response = await fetch(`https://monotein-book-5x2p.onrender.com/item/${params.id}`)
             const jsonResponse = await response.json()
 
             setEditItem({
@@ -42,7 +42,7 @@ const UpdateItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`https://monotein-book-5x2p.onrender.com//item/update/${params.id}`, {
+            const response = await fetch(`https://monotein-book-5x2p.onrender.com/item/update/${params.id}`, {
                 method: "PUT",
                 headers: {
                     "Accept": "application/json",
