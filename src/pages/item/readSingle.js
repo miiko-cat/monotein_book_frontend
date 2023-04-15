@@ -37,7 +37,7 @@ const ReadSingle = () => {
         <div className="grid-container-si">
             <div>
                 {singleItem.image && 
-                    <img src={require(`../../images${singleItem.image}`)} alt="item" />}
+                    <img src={singleItem.image} alt="item" />}
             </div>
             <div>
                 <h1>{singleItem.title}</h1>

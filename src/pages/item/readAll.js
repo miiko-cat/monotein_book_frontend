@@ -19,7 +19,7 @@ const ReadAll = () => {
             <div className="grid-container-in">
                 {allItems && allItems.allItems.map(item => 
                     <Link to={`/item/${item._id}`} key={item._id} className="card">
-                        <img src={require(`../../images${item.image}`)} alt="item" />
+                        <img src={item.image} alt="item" />
                         <div className="texts-area">
                             <h2>¥{item.price}</h2>
                             <h3>{item.title}</h3>

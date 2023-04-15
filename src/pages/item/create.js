@@ -1,5 +1,6 @@
 import { useState } from "react"
 import useAuth from "../../utils/useAuth"
+import ImgInput from "../../components/imgInput"
 
 const CreateItem = () => {
     const[createItem, setCreateItem] = useState({
@@ -13,6 +14,13 @@ const CreateItem = () => {
         setCreateItem({
             ...createItem,
             [e.target.name]: e.target.value
+        })
+    }
+
+    const uploadImageSrc = async (url) => {
+        setCreateItem({
+            ...createItem,
+            image: url
         })
     }
 
@@ -31,6 +39,7 @@ const CreateItem = () => {
 
             const jsonData = await response.json()
             alert(jsonData.message)
+
         } catch (error) {
             alert("アイテム作成失敗")
         }
@@ -42,6 +51,7 @@ const CreateItem = () => {
         return (
             <div>
                 <h1 className="page-title">アイテム作成</h1>
+                <ImgInput setImage={uploadImageSrc} />
                 <form onSubmit={handleSubmit}>
                     <input value={createItem.title} onChange={handleChange} 
                         type="text" name="title" placeholder="アイテム名" required />

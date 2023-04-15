@@ -15,7 +15,7 @@ const DeleteItem = () => {
 
     useEffect(() => {
         const getSingleItem = async () => {
-            const response = await fetch(`https://monotein-book-5x2p.onrender.com/item/${params.id}`)
+            const response = await fetch(`https://monotein-book-5x2p.onrender.com//item/${params.id}`)
             const jsonResponse = await response.json()
     
             setDeleteItem({
@@ -35,7 +35,7 @@ const DeleteItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await fetch(`https://monotein-book-5x2p.onrender.com/item/delete/${params.id}`, {
+            const response = await fetch(`https://monotein-book-5x2p.onrender.com//item/delete/${params.id}`, {
                 method: "DELETE",
                 headers: {
                     "Accept": "application/json",
@@ -60,7 +60,7 @@ const DeleteItem = () => {
                 <form onSubmit={handleSubmit}>
                     <h2>{deleteItem.title}</h2>
                     {deleteItem.image && 
-                        <img src={require(`../../images${deleteItem.image}`)} alt="item" />
+                        <img src={deleteItem.image} alt="item" />
                     }
                     <h3>¥{deleteItem.price}</h3>
                     <p>{deleteItem.description}</p>
